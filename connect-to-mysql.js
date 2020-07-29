@@ -16,7 +16,7 @@ function query(q) {
 }
 
 function queryWithValue(q, v) {
-	connection.query(	q, [v], function (err, result) {
+	connection.query(	q, v, function (err, result) {
 								if (err) console.table(err);
 								console.table( result);
 						}
@@ -28,7 +28,7 @@ function selectCustomerByName(nam) {
 		SELECT *
 		FROM customers
 		WHERE name = ?
-	`, nam);
+	`, [nam]);
 }
 
 query(`insert into users (username)
@@ -39,11 +39,54 @@ query(`
 	select * from users
 `);
 
-queryWithValue('insert into customers(name, lastname) values (?, ?)', [['molla', 'kazom'], ['ali', 'gholi']]);
+queryWithValue('insert into customers(name, lastname) values (?, ?)', [[['molla', 'kazom'], ['ali', 'gholi']]]);
 
 query(`
 	CREATE TABLE customers (
 		name varchar(30),
 		lastname varchar(30)
 	);
+`);
+
+query(`
+		SELECT *
+		FROM customers
+		ORDER BY lastname
+		ASC
+`);
+
+queryWithValue(
+	`
+		DELETE FROM customers
+		WHERE name = ?
+	`,
+	['ali']
+);
+
+queryWithValue(
+	`UPDATE customers
+	SET name = ?
+	WHERE name = ?`,
+	[
+		['hojjat'],
+		['molla']
+	]
+);
+
+query(`
+		SELECT *
+		FROM customers
+		ORDER BY lastname
+`);
+
+query(`insert into customers (name, lastname)
+		VALUES ('hojjat', 'alimi')`);
+query(`insert into customers (name, lastname)
+		VALUES ('ali', 'rahimi')`);
+query(`insert into customers (name, lastname)
+		VALUES ('jafar', 'mesdaghi')`);
+query(`
+	SELECT *
+	FROM customers as c inner join users as u
+	ON u.username != c.name
 `);
