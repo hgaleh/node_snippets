@@ -1,0 +1,24 @@
+{
+  "name": "node_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "connect-to-mysql.js",
+  "dependencies": {
+    "clear": "^0.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hgaleh/node_snippets.git"
+  },
+  "author": "npmdeploy <npmdeploy@ocs.co.ir> (http://ocs.co.ir)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hgaleh/node_snippets/issues"
+  },
+  "homepage": "https://github.com/hgaleh/node_snippets#readme"
+}
