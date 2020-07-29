@@ -4,7 +4,6 @@
   "description": "",
   "main": "connect-to-mysql.js",
   "dependencies": {
-    "clear": "^0.1.0",
     "mysql": "^2.18.1"
   },
   "devDependencies": {},
