@@ -1,5 +1,4 @@
 const http = require('http');
-const { hasUncaughtExceptionCaptureCallback } = require('process');
 
 describe('http', () => {
     it('return hello', (done) => {
